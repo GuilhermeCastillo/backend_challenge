@@ -19,7 +19,7 @@ class Video(models.Model):
     descricao = models.CharField(max_length=200)
     url = models.CharField(max_length=200)
     # relacionamento
-    categoriaId = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoriaId = models.ForeignKey(Categoria, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.titulo
