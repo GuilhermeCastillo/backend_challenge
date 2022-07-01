@@ -6,9 +6,18 @@ class VideoCategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
         fields = '__all__'
-   
-    # def get_periodo(self, obj):
-    #     return obj.get_periodo_display()
+    
+
+# Show all of the PASSENGERS in particular WORKSPACE
+    # or all of the PASSENGERS in particular AIRLINE
+    # def get_queryset(self):
+    #     queryset = Video.objects.all()
+    #     workspace = self.request.query_params.get('videos')
+
+    #     if workspace:
+    #         queryset = queryset.filter(titulo=workspace)
+
+    #     return queryset
 
 class VideoSerializer(serializers.ModelSerializer):
     class Meta:
