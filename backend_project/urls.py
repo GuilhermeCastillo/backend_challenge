@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from aplicacao.views import VideosViewSet, CategoriasViewSet
+from aplicacao.views import VideosViewSet, CategoriasViewSet, VideoCategoriaList
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -25,4 +25,5 @@ router.register('categorias', CategoriasViewSet, basename='categorias')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('categorias/<int:pk>/videos/', VideoCategoriaList.as_view())
 ]
