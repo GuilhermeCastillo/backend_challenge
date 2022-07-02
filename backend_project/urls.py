@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from aplicacao.views import VideosViewSet, CategoriasViewSet, VideoCategoriaList
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 router = routers.DefaultRouter()
 router.register('videos', VideosViewSet, basename='videos')
 router.register('categorias', CategoriasViewSet, basename='categorias')
 
 urlpatterns = [
+    path('token/', TokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('categorias/<int:pk>/videos/', VideoCategoriaList.as_view())
